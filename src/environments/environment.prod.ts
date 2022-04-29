@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+  routes: {
+    LOGIN_ADMIN: 'http://localhost:5000/admin/login',
+  },
 };

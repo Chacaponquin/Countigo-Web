@@ -1,25 +1,39 @@
 <div class="w-full flex h-screen">
     <div class="absolute overflow-hidden w-full h-screen">
-        <img src="./assets/img/blob.svg" alt="blob" class="w-[600px] h-[600px] rotate-45 absolute -top-52 -left-52" />
-        <img src="./assets/img/blob-2.svg" alt="blob" class="w-[500px] h-[500px] absolute -bottom-52 left-[40%]" />
-        <img src="./assets/img/blob-3.svg" alt="blob" class="w-[500px] h-[500px] absolute -right-52 -top-20" />
+        <img src="./assets/svg/blob.svg" alt="blob" class="rotate-12 absolute esm:hidden sm:flex sm:w-[300px] sm:h-[300px] sm:-top-20 sm:-left-20 xl:w-[500px] xl:h-[500px] xl:-left-44 xl:-top-32" />
+        <img src="./assets/svg/blob-2.svg" alt="blob" class="w-[500px] h-[500px] absolute -bottom-52 -right-20 esm:hidden sm:flex sm:w-[700px] sm:h-[700px] md:-top-44 md:-right-32" />
+        <img src="./assets/svg/blob-3.svg" alt="blob" class="absolute esm:hidden sm:hidden lg:flex lg:w-[300px] lg:h-[300px] lg:right-0 lg:-bottom-52" />
+        <img src="./assets/svg/blob-4.svg" alt="blob" class="absolute -left-20 -bottom-20 esm:hidden sm:hidden md:flex md:w-[700px] md:h-[500px] md:-left-12 md:-bottom-52 lg:-left-40" />
     </div>
 
     <div class="w-full h-full flex flex-col justify-center items-center">
-        <form class="flex flex-col w-max shadow-xl rounded-xl p-16 z-10 bg-white" [formGroup]="adminForm" (ngSubmit)="onSubmit()">
-            <img src="./assets/img/complete-no-bg.png" alt="blue-logo" class="object-contain w-[400px] h-[200px]" />
+        <form class="flex flex-col w-max shadow-2xl rounded-xl items-center p-16 z-10 bg-white sm:p-10 esm:p-7 text-sm" [formGroup]="adminForm" (ngSubmit)="onSubmit()">
+            <img src="./assets/img/complete-no-bg.png" alt="blue-logo" class="object-contain sm:w-[400px] sm:h-[200px] esm:w-[280px] esm:h-[150px]" />
 
-            <div class="mb-7 flex flex-col">
+            <div class="mb-7 flex flex-col w-full">
                 <label for="" class="mb-3 font-bold text-xl"> Email </label>
-                <input type="text" placeholder="joe@email.com" class="p-3 border-2" formControlName="email" />
+                <div class="flex bg-slate-100">
+                    <div class="flex justify-center items-center px-5 py-3 border-2">
+                        <fa-icon [icon]="faUser" [ngClass]="'fill-slate-500 input_icon'"></fa-icon>
+                    </div>
+
+                    <input type="text" placeholder="joe@email.com" class="p-3 border-2 w-full border-l-0" formControlName="email" />
+                </div>
             </div>
 
-            <div class="mb-7 flex-col flex">
+            <div class="mb-7 flex-col flex w-full">
                 <label for="" class="mb-3 font-bold text-xl">Password</label>
-                <input type="password" placeholder="Enter Your Password" class="p-3 border-2" formControlName="password" />
+                <div class="flex bg-slate-100">
+                    <div class="flex justify-center items-center px-5 py-3 border-2">
+                        <fa-icon [icon]="faKey" [ngClass]="'fill-slate-500 input_icon'"></fa-icon>
+                    </div>
+
+                    <input type="password" placeholder="Enter Your Password" class="p-3 border-2 w-full border-l-0" formControlName="password" />
+                </div>
             </div>
 
-            <button type="sumbit" class="w-full text-center py-4 bg-primary_color text-white font-bold text-xl">
+            <app-loader *ngIf="loading" [className]="'flex justify-center'"></app-loader>
+            <button *ngIf="!loading" type="sumbit" class="w-full text-center py-4 bg-primary_color text-white font-bold text-xl">
         Login
       </button>
         </form>

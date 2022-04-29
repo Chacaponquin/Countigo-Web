@@ -4,11 +4,14 @@ module.exports = {
         extend: {
             colors: {
                 primary_color: "rgb(0, 51, 102)",
-                secon_color: "rgb(250, 187, 70)",
+                second_color: "rgb(250, 187, 70)",
             },
             fontFamily: {
                 openSans: ["OpenSans"],
                 openSansBold: ["OpenSans-Bold"],
+            },
+            screens: {
+                esm: { max: "640px" },
             },
         },
     },
