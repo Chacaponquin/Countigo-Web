@@ -1,0 +1,29 @@
+<div class="w-full flex h-screen">
+    <div class="absolute -top-52 -left-52">
+        <img src="./assets/img/blob.svg" alt="blob" class="w-[600px] h-[600px] rotate-45" />
+    </div>
+
+    <div class="w-[40%] flex justify-center items-center h-full z-10">
+        <img src="./assets/img/complete-no-bg.png" alt="blue-logo" class="object-contain w-[500px] h-[300px]" />
+    </div>
+
+    <div class="w-[60%] h-full flex flex-col justify-center items-center">
+        <h1 class="mb-8 text-8xl font-openSansBold">LOGIN</h1>
+
+        <form class="flex flex-col w-96" [formGroup]="adminForm" (ngSubmit)="onSubmit()">
+            <div class="mb-7 flex flex-col">
+                <label for="" class="mb-3 font-bold text-xl"> Email </label>
+                <input type="text" placeholder="joe@email.com" class="p-3 border-2" formControlName="email" />
+            </div>
+
+            <div class="mb-7 flex-col flex">
+                <label for="" class="mb-3 font-bold text-xl">Password</label>
+                <input type="password" placeholder="Enter Your Password" class="p-3 border-2" formControlName="password" />
+            </div>
+
+            <button type="sumbit" class="w-full text-center py-4 bg-primary_color text-white font-bold text-xl">
+        Login
+      </button>
+        </form>
+    </div>
+</div>
