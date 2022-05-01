@@ -11,10 +11,11 @@ export class SkeletonComponent implements OnInit {
   constructor(private userSvc: UserService) {}
 
   showMenu: boolean = false;
+  showIcon: boolean = false;
 
   ngOnInit(): void {
     this.userSvc.user.subscribe((user) => {
-      this.showMenu = user ? false : true;
+      this.showIcon = user ? true : false;
     });
   }
 

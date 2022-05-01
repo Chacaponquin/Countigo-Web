@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { faUser, faKey } from '@fortawesome/free-solid-svg-icons';
-import { BehaviorSubject } from 'rxjs';
 import { LoginService } from 'src/app/shared/services/login/login.service';
 
 @Component({
@@ -10,7 +10,11 @@ import { LoginService } from 'src/app/shared/services/login/login.service';
   styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent implements OnInit {
-  constructor(private fb: FormBuilder, private loginSvc: LoginService) {}
+  constructor(
+    private fb: FormBuilder,
+    private loginSvc: LoginService,
+    private router: Router
+  ) {}
 
   faUser = faUser;
   faKey = faKey;
@@ -21,6 +25,7 @@ export class AdminComponent implements OnInit {
   });
 
   loading: boolean = false;
+  error: string = '';
 
   ngOnInit(): void {}
 
@@ -28,9 +33,20 @@ export class AdminComponent implements OnInit {
     this.loading = true;
 
     this.loginSvc.loginAdminUser(this.adminForm.value).subscribe({
-      error: (error) => console.log(error),
-      next: (user) => console.log(user),
-      complete: () => (this.loading = false),
+      error: (error: Error) => {
+        this.error = error.message;
+        this.loading = false;
+
+        setTimeout(() => {
+          this.error = '';
+        }, 8000);
+      },
+      next: () => {
+        this.router.navigateByUrl('/');
+      },
+      complete: () => {
+        this.loading = false;
+      },
     });
   }
 }

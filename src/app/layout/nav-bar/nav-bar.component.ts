@@ -9,7 +9,8 @@ import { navBarOptions } from 'src/app/data/const/navBarOptions';
   styleUrls: ['./nav-bar.component.css'],
 })
 export class NavBarComponent implements OnInit {
-  @Input() showMenu: boolean = false;
+  @Input() showIcon: boolean = false;
+
   @Output() openEmitter = new EventEmitter<MenuInteractions>();
 
   constructor() {}

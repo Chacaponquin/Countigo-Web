@@ -10,6 +10,10 @@
         <form class="flex flex-col w-max shadow-2xl rounded-xl items-center p-16 z-10 bg-white sm:p-10 esm:p-7 text-sm" [formGroup]="adminForm" (ngSubmit)="onSubmit()">
             <img src="./assets/img/complete-no-bg.png" alt="blue-logo" class="object-contain sm:w-[400px] sm:h-[200px] esm:w-[280px] esm:h-[150px]" />
 
+            <div class="bg-red-500 w-full p-4 text-sm text-white mb-2 rounded-lg" *ngIf="error">
+                {{ error }}
+            </div>
+
             <div class="mb-7 flex flex-col w-full">
                 <label for="" class="mb-3 font-bold text-xl"> Email </label>
                 <div class="flex bg-slate-100">
@@ -33,7 +37,10 @@
             </div>
 
             <app-loader *ngIf="loading" [className]="'flex justify-center'"></app-loader>
-            <button *ngIf="!loading" type="sumbit" class="w-full text-center py-4 bg-primary_color text-white font-bold text-xl">
+            <button *ngIf="!loading" type="sumbit" class="w-full text-center py-4 transition-all duration-300 bg-primary_color text-white font-bold text-xl rounded-lg" [disabled]="!adminForm.valid" [ngClass]="{
+          'text-black': !adminForm.valid,
+          'bg-slate-200': !adminForm.valid
+        }">
         Login
       </button>
         </form>
