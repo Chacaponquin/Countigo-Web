@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { faClose } from '@fortawesome/free-solid-svg-icons';
+import { MenuInteractions } from 'src/app/data/const/menuInteractions.enum';
 
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
-  styleUrls: ['./side-bar.component.css']
+  styleUrls: ['./side-bar.component.css'],
 })
 export class SideBarComponent implements OnInit {
+  @Input() showMenu: boolean = false;
+  @Output() closeEmitter = new EventEmitter<MenuInteractions>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  faClose = faClose;
+
+  ngOnInit(): void {}
+
+  closeMenu(): void {
+    this.closeEmitter.emit(MenuInteractions.CLOSE);
   }
-
 }

@@ -1,1 +1,5 @@
-<p>side-bar works!</p>
+<div class="fixed h-screen top-0 left-0 w-[300px] bg-primary_color px-7 py-5 duration-500" [class.open]="showMenu" [class.close]="!showMenu">
+    <div class="w-full flex justify-end">
+        <fa-icon [icon]="faClose" class="text-white text-[1.5rem] cursor-pointer" (click)="closeMenu()"></fa-icon>
+    </div>
+</div>

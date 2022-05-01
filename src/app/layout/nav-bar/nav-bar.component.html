@@ -1,8 +1,11 @@
 <div class="fixed top-0 w-full px-36 py-4 flex justify-between items-center text-base">
-    <img class="object-contain w-14 h-14" src="./assets/img/no-bg.png" alt="company-logo" />
+    <div class="flex items-center">
+        <fa-icon [icon]="faMenu" class="menu_icon" (click)="openMenu()"></fa-icon>
+        <img class="object-contain w-14 h-14" src="./assets/img/no-bg.png" alt="company-logo" />
+    </div>
 
     <div class="flex space-x-11">
-        <a *ngFor="let option of options" class="transition-all duration-300 text-black font-bold" [routerLink]="option.url" [routerLinkActive]="''">{{ option.label }}</a
+        <a *ngFor="let option of options" class="transition-all duration-300 text-white font-bold" [routerLink]="option.url" [routerLinkActive]="''">{{ option.label }}</a
     >
   </div>
 </div>
