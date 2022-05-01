@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
   routes: {
-    LOGIN_ADMIN: 'http://localhost:5000/admin/login',
+    LOGIN_ADMIN: 'https://countigo-api.herokuapp.com/admin/login',
   },
 };

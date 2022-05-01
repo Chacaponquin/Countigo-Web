@@ -11,6 +11,11 @@
     src: url("./assets/fonts/OpenSans/static/OpenSans/OpenSans-ExtraBold.ttf");
 }
 
+@font-face {
+    font-family: Myriad-Bold;
+    src: url("./assets/fonts/Myriad/Myriad_Pro_Bold.ttf");
+}
+
 * {
     font-family: OpenSans;
 }

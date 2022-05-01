@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { LoginService } from 'src/app/shared/services/login/login.service';
 import { faUser, faKey } from '@fortawesome/free-solid-svg-icons';
+import { BehaviorSubject } from 'rxjs';
+import { LoginService } from 'src/app/shared/services/login/login.service';
 
 @Component({
   selector: 'app-admin',
@@ -9,7 +10,7 @@ import { faUser, faKey } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent implements OnInit {
-  constructor(private fb: FormBuilder, private loginService: LoginService) {}
+  constructor(private fb: FormBuilder, private loginSvc: LoginService) {}
 
   faUser = faUser;
   faKey = faKey;
@@ -21,13 +22,15 @@ export class AdminComponent implements OnInit {
 
   loading: boolean = false;
 
-  ngOnInit(): void {
-    this.loginService.loading.subscribe((value) => (this.loading = value));
-  }
+  ngOnInit(): void {}
 
   onSubmit(): void {
-    this.loginService.loginAdminUser(this.adminForm.value).subscribe((user) => {
-      if (user) console.log(user);
+    this.loading = true;
+
+    this.loginSvc.loginAdminUser(this.adminForm.value).subscribe({
+      error: (error) => console.log(error),
+      next: (user) => console.log(user),
+      complete: () => (this.loading = false),
     });
   }
 }

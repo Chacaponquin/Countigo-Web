@@ -1,0 +1,13 @@
+<div class="w-full px-32 py-10">
+    <div class="grid grid-cols-4 gap-10">
+        <div *ngFor="let service of homeServices" class="rounded-lg shadow-lg">
+            <img src="{{ service.image }}" alt="{{ service.title }}" class="object-cover h-[200px] w-full" />
+
+            <div class="p-4">
+                <h1 class="font-bold text-center">{{ service.title }}</h1>
+
+                <p class="font-medium text-base">{{ service.description }}</p>
+            </div>
+        </div>
+    </div>
+</div>

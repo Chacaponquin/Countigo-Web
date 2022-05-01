@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { navBarOptions } from 'src/app/data/const/navBarOptions';
 
 @Component({
@@ -7,7 +8,7 @@ import { navBarOptions } from 'src/app/data/const/navBarOptions';
   styleUrls: ['./nav-bar.component.css'],
 })
 export class NavBarComponent implements OnInit {
-  constructor() {}
+  constructor(private route: ActivatedRoute) {}
 
   options = navBarOptions;
 
