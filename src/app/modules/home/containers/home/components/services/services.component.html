@@ -1,12 +1,16 @@
 <div class="w-full px-32 py-10">
-    <div class="grid grid-cols-4 gap-10">
-        <div *ngFor="let service of homeServices" class="rounded-lg shadow-lg">
+    <div class="grid grid-cols-3 gap-10">
+        <div *ngFor="let service of homeServices" class="shadow-lg transition-all duration-300" [ngClass]="{ 'scale-110': selectService == service.id }">
             <img src="{{ service.image }}" alt="{{ service.title }}" class="object-cover h-[200px] w-full" />
 
             <div class="p-4">
-                <h1 class="font-bold text-center">{{ service.title }}</h1>
+                <h1 class="font-myriadBold text-left text-xl mb-3">
+                    {{ service.title }}
+                </h1>
 
-                <p class="font-medium text-base">{{ service.description }}</p>
+                <p class="font-medium text-sm text-slate-400">
+                    {{ service.description }}
+                </p>
             </div>
         </div>
     </div>

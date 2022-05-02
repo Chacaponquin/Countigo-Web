@@ -1,6 +1,6 @@
-<div class="fixed top-0 w-full px-36 py-4 flex justify-between items-center text-base">
+<div class="absolute top-0 w-full px-36 py-4 flex justify-between items-center text-base esm:px-10 sm:px-16 lg:px-28">
     <div class="flex items-center">
-        <fa-icon *ngIf="showIcon" [icon]="faMenu" class="menu_icon" (click)="openMenu()"></fa-icon>
+        <fa-icon *ngIf="showIcon" [icon]="faMenu" class="cursor-pointer text-2xl mr-10" (click)="openMenu()"></fa-icon>
         <img class="object-contain w-14 h-14" src="./assets/img/no-bg.png" alt="company-logo" />
     </div>
 

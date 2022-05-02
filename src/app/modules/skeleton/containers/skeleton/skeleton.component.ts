@@ -15,7 +15,7 @@ export class SkeletonComponent implements OnInit {
 
   ngOnInit(): void {
     this.userSvc.user.subscribe((user) => {
-      this.showIcon = user ? true : false;
+      this.showIcon = user ? true : true;
     });
   }
 

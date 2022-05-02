@@ -1,5 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { faClose } from '@fortawesome/free-solid-svg-icons';
+import {
+  faClose,
+  faNoteSticky,
+  faShoppingCart,
+} from '@fortawesome/free-solid-svg-icons';
 import { MenuInteractions } from 'src/app/data/const/menuInteractions.enum';
 
 @Component({
@@ -14,6 +18,8 @@ export class SideBarComponent implements OnInit {
   constructor() {}
 
   faClose = faClose;
+  faNote = faNoteSticky;
+  faServices = faShoppingCart;
 
   ngOnInit(): void {}
 
