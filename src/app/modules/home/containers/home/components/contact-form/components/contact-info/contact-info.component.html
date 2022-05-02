@@ -1,0 +1,18 @@
+<div class="w-full flex flex-col items-center py-5">
+    <img src="./assets/svg/form-icon.svg" alt="form-icon" class="w-[300px] h-[300px]" />
+
+    <div class="flex flex-col space-y-4 mt-11">
+        <div *ngFor="let contact of contactInf" class="flex text-slate-400 w-full items-center">
+            <fa-icon [icon]="contact.icon" class="mr-8 text-xl"></fa-icon>
+            <p class="font-bold text-sm">
+                {{ contact.inf }}
+            </p>
+        </div>
+    </div>
+
+    <div class="w-full flex space-x-7 justify-center py-10">
+        <div *ngFor="let social of socialMedia" class="rounded-full transition-all duration-300 cursor-pointer p-4 bg-black hover:scale-110">
+            <img src="{{ social.icon }}" alt="{{ social.label }}" class="w-[40px] h-[40px]" />
+        </div>
+    </div>
+</div>
