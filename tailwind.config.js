@@ -5,10 +5,6 @@ module.exports = {
             colors: {
                 primary_color: "#135194",
                 second_color: "rgb(250, 187, 70)",
-                twitter_color: "",
-                facebook_color: "",
-                linkedin_color: "",
-                instagram_color: "",
             },
             fontFamily: {
                 openSans: ["OpenSans"],
