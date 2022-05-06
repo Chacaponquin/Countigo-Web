@@ -11,7 +11,7 @@
     </div>
 
     <div class="w-full flex space-x-7 justify-center py-10">
-        <div *ngFor="let social of socialMedia" class="rounded-full transition-all duration-300 cursor-pointer p-3 bg-slate-400 hover:scale-110" [class]="social.classEffect">
+        <div *ngFor="let social of socialMedia" class="rounded-full transition-all duration-300 cursor-pointer p-3 hover:scale-110" [class]="social.color">
             <img src="{{ social.icon }}" alt="{{ social.label }}" class="w-[35px] h-[35px]" />
         </div>
     </div>

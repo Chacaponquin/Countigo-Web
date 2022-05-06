@@ -27,7 +27,8 @@
                             "src/styles.css",
                             "node_modules/swiper/modules/pagination/pagination.min.css",
                             "node_modules/swiper/swiper.min.css",
-                            "node_modules/swiper/modules/navigation/navigation.min.css"
+                            "node_modules/swiper/modules/navigation/navigation.min.css",
+                            "node_modules/ngx-toastr/toastr.css"
                         ],
                         "scripts": []
                     },

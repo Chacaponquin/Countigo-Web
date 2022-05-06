@@ -4,24 +4,53 @@
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia vitae consequuntur beatae, quae, expedita error laudantium ad, aliquam dolor praesentium aliquid laboriosam distinctio laborum in?
     </p>
 
-    <form class="py-6 flex flex-col items-center text-left w-full">
+    <form class="py-6 flex flex-col items-center text-left w-full" [formGroup]="clientMessageForm" (ngSubmit)="onSubmit()">
         <div class="flex flex-col mb-5 w-full">
-            <label for="" class="text-lg font-bold text-slate-400">Your Name</label>
-            <input type="text" class="p-3 bg-slate-200 rounded-2xl focus:outline-none" />
-        </div>
+            <label for="" class="text-base font-bold text-slate-400 mb-2">Your Name</label
+      >
+      <input
+        type="text"
+        class="p-3 bg-slate-200 rounded-2xl focus:outline-none"
+        formControlName="name"
+        name="name"
+      />
+    </div>
 
-        <div class="flex flex-col mb-5 w-full">
-            <label for="" class="text-lg font-bold text-slate-400">Email Name</label>
-            <input type="email" class="p-3 bg-slate-200 rounded-2xl focus:outline-none" />
-        </div>
+    <div class="flex flex-col mb-5 w-full">
+      <label for="" class="text-base font-bold text-slate-400 mb-2"
+        >Email Name</label
+      >
+      <input
+        type="email"
+        class="p-3 bg-slate-200 rounded-2xl focus:outline-none"
+        formControlName="email"
+        name="email"
+      />
+    </div>
 
-        <div class="flex flex-col mb-5 w-full">
-            <label for="" class="text-lg font-bold text-slate-400">Message</label>
-            <textarea name="" class="p-3 bg-slate-200 rounded-2xl resize-none h-44 focus:outline-none"></textarea>
-        </div>
+    <div class="flex flex-col mb-5 w-full">
+      <label for="" class="text-base font-bold text-slate-400 mb-2"
+        >Message</label
+      >
+      <textarea
+        name=""
+        class="p-3 bg-slate-200 rounded-2xl resize-none h-44 focus:outline-none"
+        formControlName="message"
+      ></textarea>
+    </div>
 
-        <button class="rounded-full w-max text-white py-5 px-16 bg-primary_color font-bold shadow-2xl text-xl">
+    <app-loader *ngIf="loading" [className]="'w-full'"></app-loader>
+
+    <button
+      *ngIf="!loading"
+      class="rounded-full w-max text-white py-5 px-16 bg-primary_color font-bold shadow-2xl text-xl transition-all duration-300"
+      [disabled]="!clientMessageForm.valid"
+      [ngClass]="{
+        'text-black': !clientMessageForm.valid,
+        'bg-slate-200': !clientMessageForm.valid
+      }"
+    >
       Send Message
     </button>
-    </form>
+  </form>
 </div>

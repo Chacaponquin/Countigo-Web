@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   routes: {
     LOGIN_ADMIN: 'http://localhost:5000/admin/login',
+    CLIENT_MESSAGE: 'http://localhost:5000/newClientMessage',
   },
 };
 
