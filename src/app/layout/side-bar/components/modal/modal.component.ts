@@ -19,8 +19,8 @@ import {
         'false',
         style({ height: '0', visibility: 'hidden', opacity: '0' })
       ),
-      transition('false => true', animate(300 + 'ms ease-in')),
-      transition('true => false', animate(300 + 'ms ease-out')),
+      transition('false => true', animate(500 + 'ms ease-in')),
+      transition('true => false', animate(500 + 'ms ease-out')),
     ]),
   ],
 })

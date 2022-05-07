@@ -1,12 +1,18 @@
-<div class="w-full flex flex-col rounded-xl" (click)="selectModal(option.id)">
-    <div class="w-full transition-all duration-300 flex items-center px-6 py-3 esm:justify-center sm:justify-start rounded-xl" [ngClass]="{ 'bg-blue-200': openModal, 'text-primary_color': openModal }">
-        <fa-icon [icon]="option.icon" class="text-xl esm:mr-0 sm:mr-8"></fa-icon>
-        <p class="esm:hidden sm:block font-bold">{{ option.label }}</p>
+<div class="w-full flex rounded-xl esm:flex-row sm:flex-col border-collapse" (click)="selectModal(option.id)">
+    <div class="px-7 w-full">
+        <div class="w-full transition-all duration-300 flex items-center px-6 py-3 esm:justify-center sm:justify-start rounded-xl h-max" [ngClass]="{ 'bg-blue-200': openModal, 'text-primary_color': openModal }">
+            <fa-icon [icon]="option.icon" class="text-xl esm:mr-0 sm:mr-8"></fa-icon>
+            <p class="esm:hidden sm:block font-bold pointer-events-none">
+                {{ option.label }}
+            </p>
+        </div>
     </div>
 
-    <div [@collapse]="openModal">
-        <div *ngFor="let modal of option.childrenModal" class="cursor-pointer" [routerLink]="modal.route">
-            <p class="p-3 pl-16 font-bold">{{ modal.label }}</p>
+    <div [@collapse]="openModal" class="w-max">
+        <div *ngFor="let modal of option.childrenModal" class="cursor-pointer w-full first:rounded-tr-lg last:rounded-br-lg esm:bg-gray-50" [routerLink]="modal.route">
+            <p class="p-3 sm:pl-16 font-bold pointer-events-none esm:pl-3 esm:w-max">
+                {{ modal.label }}
+            </p>
         </div>
     </div>
 </div>

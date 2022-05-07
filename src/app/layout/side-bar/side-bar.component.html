@@ -1,5 +1,5 @@
-<div class="fixed h-screen flex flex-col top-0 left-0 bg-gray-50 px-7 py-5 duration-500 esm:w-[120px] sm:w-[280px] z-50" [class.open]="showMenu" [class.close]="!showMenu">
-    <div class="w-full flex sm:justify-end esm:justify-center">
+<div class="fixed h-screen flex flex-col top-0 left-0 bg-gray-50 duration-500 py-5 esm:w-[120px] sm:w-[280px] z-50" [class.open]="showMenu" [class.close]="!showMenu">
+    <div class="w-full flex px-7 sm:justify-end esm:justify-center">
         <fa-icon [icon]="faClose" class="text-black text-[1.5rem] cursor-pointer" (click)="closeMenu()"></fa-icon>
     </div>
 
