@@ -4,11 +4,11 @@
   }">
     <div class="flex items-center">
         <fa-icon *ngIf="showIcon" [icon]="faMenu" class="cursor-pointer text-2xl mr-10" (click)="openMenu()"></fa-icon>
-        <img class="object-contain w-14 h-14" src="./assets/img/no-bg.png" alt="company-logo" />
+        <img class="object-contain w-14 h-14 esm:hidden" src="./assets/img/no-bg.png" alt="company-logo" />
     </div>
 
     <div class="flex space-x-7">
-        <a *ngFor="let option of options" class="transition-all duration-300 text-white font-bold py-4 px-8 rounded-xl" [routerLink]="option.url" [routerLinkActive]="''" [ngClass]="{
+        <a *ngFor="let option of options" class="transition-all duration-300 text-white font-bold py-3 px-6 rounded-xl border-2" [routerLink]="option.url" [routerLinkActive]="''" [ngClass]="{
         'text-black': actualUrl != '/'
       }">{{ option.label }}</a
     >

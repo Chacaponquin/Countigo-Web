@@ -2,6 +2,7 @@ import {
   faEdit,
   faNoteSticky,
   faShoppingCart,
+  faMessage,
 } from '@fortawesome/free-solid-svg-icons';
 
 export const sideBarOptions = [
@@ -36,6 +37,12 @@ export const sideBarOptions = [
     id: '3',
     icon: faEdit,
     label: 'Sections',
+    childrenModal: [],
+  },
+  {
+    id: '4',
+    icon: faMessage,
+    label: 'Messages',
     childrenModal: [],
   },
 ];
