@@ -1,26 +1,11 @@
-<div class="fixed h-screen flex flex-col top-0 left-0 bg-gray-50 px-7 py-5 duration-500 esm:w-[120px] sm:w-[280px]" [class.open]="showMenu" [class.close]="!showMenu">
+<div class="fixed h-screen flex flex-col top-0 left-0 bg-gray-50 px-7 py-5 duration-500 esm:w-[120px] sm:w-[280px] z-50" [class.open]="showMenu" [class.close]="!showMenu">
     <div class="w-full flex sm:justify-end esm:justify-center">
         <fa-icon [icon]="faClose" class="text-black text-[1.5rem] cursor-pointer" (click)="closeMenu()"></fa-icon>
     </div>
 
     <div class="py-5 flex flex-col space-y-2">
-        <div class="w-full rounded-2xl flex items-center bg-primary_color text-white px-6 py-4 esm:justify-center sm:justify-start">
-            <fa-icon [icon]="faNote" class="text-xl esm:mr-0 sm:mr-8"></fa-icon>
-            <p class="esm:hidden sm:block">Blog</p>
-        </div>
-
-        <div class="w-full rounded-2xl flex items-center bg-primary_color text-white px-6 py-4 esm:justify-center sm:justify-start">
-            <fa-icon [icon]="faServices" class="text-xl esm:mr-0 sm:mr-8"></fa-icon>
-            <p class="esm:hidden sm:block">Services</p>
-        </div>
+        <app-modal *ngFor="let option of sideBarOptions" [option]="option" [openModal]="option.id == openModal" (modalEvent)="selectModal($event)"></app-modal>
     </div>
 
-    <div class="fixed bottom-5 flex w-full items-center">
-        <img src="./assets/img/test.jpg" alt="profile" class="rounded-full object-cover sm:w-[70px] sm:h-[70px] esm:w-[50px] esm:h-[50px] sm:cursor-pointer" />
-
-        <div class="flex flex-col py-5 ml-10 esm:hidden sm:flex">
-            <h1 class="font-bold text-sm mb-3">Buenas</h1>
-            <p class="text-slate-400">Super User</p>
-        </div>
-    </div>
+    <sideBar-profile-section></sideBar-profile-section>
 </div>

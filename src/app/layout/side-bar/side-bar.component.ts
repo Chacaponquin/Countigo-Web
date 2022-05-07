@@ -1,10 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {
-  faClose,
-  faNoteSticky,
-  faShoppingCart,
-} from '@fortawesome/free-solid-svg-icons';
+import { faClose } from '@fortawesome/free-solid-svg-icons';
 import { MenuInteractions } from 'src/app/data/const/menuInteractions.enum';
+import { sideBarOptions } from 'src/app/data/const/sideBarOptions';
 
 @Component({
   selector: 'app-side-bar',
@@ -18,12 +15,17 @@ export class SideBarComponent implements OnInit {
   constructor() {}
 
   faClose = faClose;
-  faNote = faNoteSticky;
-  faServices = faShoppingCart;
+  sideBarOptions = sideBarOptions;
+  openModal: string = '';
 
   ngOnInit(): void {}
 
   closeMenu(): void {
     this.closeEmitter.emit(MenuInteractions.CLOSE);
+  }
+
+  selectModal(id: string): void {
+    if (this.openModal == id) this.openModal = '';
+    else this.openModal = id;
   }
 }
