@@ -12,7 +12,7 @@ export const sideBarOptions = [
     childrenModal: [
       {
         label: 'New Article',
-        route: '',
+        route: '/blog/newArticle',
       },
       {
         label: 'Edit Article',
