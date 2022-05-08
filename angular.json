@@ -28,7 +28,10 @@
                             "node_modules/swiper/modules/pagination/pagination.min.css",
                             "node_modules/swiper/swiper.min.css",
                             "node_modules/swiper/modules/navigation/navigation.min.css",
-                            "node_modules/ngx-toastr/toastr.css"
+                            "node_modules/ngx-toastr/toastr.css",
+
+                            "./node_modules/froala-editor/css/froala_editor.pkgd.min.css",
+                            "./node_modules/froala-editor/css/froala_style.min.css"
                         ],
                         "scripts": []
                     },

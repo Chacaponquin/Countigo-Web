@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       preventDuplicates: false,
       positionClass: 'toast-top-right',
       closeButton: true,
+      timeOut: 8000,
     }),
     BrowserAnimationsModule,
   ],

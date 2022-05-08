@@ -39,13 +39,11 @@ export class FormComponent implements OnInit {
     this.userSvc.sendClientMessage(this.clientMessageForm.value).subscribe({
       next: () => {
         this.toastr.success('Por su mensaje', 'Gracias', {
-          timeOut: 8000,
           toastClass: 'ngx-toastr !bg-success_color',
         });
       },
       error: (error) => {
         this.toastr.error(error.message, 'Hubo un Error', {
-          timeOut: 8000,
           toastClass: 'ngx-toastr !bg-error_color',
         });
         this.loading = false;
