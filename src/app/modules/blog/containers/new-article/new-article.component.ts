@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
 import { faArrowLeft, faCamera } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
+import { BlogService } from 'src/app/shared/services/blog/blog.service';
 
 @Component({
   selector: 'blog-new-article',
@@ -9,12 +10,18 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./new-article.component.css'],
 })
 export class NewArticleComponent implements OnInit {
-  constructor(private fb: FormBuilder, private toastr: ToastrService) {}
+  constructor(
+    private fb: FormBuilder,
+    private toastr: ToastrService,
+    private blogSvc: BlogService
+  ) {}
 
   faArrow = faArrowLeft;
   faCamera = faCamera;
 
   imageShow: any[] = [];
+
+  loading: boolean = false;
 
   articleForm = this.fb.group({
     title: ['', [Validators.required]],
@@ -23,6 +30,7 @@ export class NewArticleComponent implements OnInit {
       [],
       [Validators.required, Validators.maxLength(5), Validators.minLength(1)]
     ),
+    resume: ['', [Validators.required]],
   });
 
   public options: Object = {
@@ -39,8 +47,16 @@ export class NewArticleComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.articleForm.value);
-    console.log(this.imageShow);
+    this.loading = true;
+
+    this.blogSvc.createArticle(this.articleForm.value).subscribe({
+      error: (error) => {
+        console.log(error);
+        this.loading = false;
+      },
+      next: () => console.log('Buenas'),
+      complete: () => (this.loading = false),
+    });
   }
 
   addImage(e: any): void {
@@ -51,7 +67,6 @@ export class NewArticleComponent implements OnInit {
 
         const reader = new FileReader();
         reader.onload = () => this.imageShow.push(reader.result);
-        reader.onprogress = () => console.log('Cargando');
 
         reader.readAsDataURL(e.target.files.item(i));
       }

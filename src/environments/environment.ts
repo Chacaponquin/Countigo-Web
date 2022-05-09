@@ -7,6 +7,7 @@ export const environment = {
   routes: {
     LOGIN_ADMIN: 'http://localhost:5000/admin/login',
     CLIENT_MESSAGE: 'http://localhost:5000/newClientMessage',
+    CREATE_ARTICLE: 'http://localhost:5000/admin/blog/createArticle',
   },
 };
 

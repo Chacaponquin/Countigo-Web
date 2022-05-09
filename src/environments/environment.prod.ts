@@ -3,5 +3,7 @@ export const environment = {
   routes: {
     LOGIN_ADMIN: 'https://countigo-api.herokuapp.com/admin/login',
     CLIENT_MESSAGE: 'https://countigo-api.herokuapp.com/newClientMessage',
+    CREATE_ARTICLE:
+      'https://countigo-api.herokuapp.com/admin/blog/createArticle',
   },
 };

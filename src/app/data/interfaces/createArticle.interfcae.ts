@@ -1,5 +1,6 @@
 export interface CreateArticleInterface {
   images: File[];
   title: string;
-  html: string;
+  htmlInput: string;
+  resume: string;
 }
