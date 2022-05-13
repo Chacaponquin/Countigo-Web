@@ -1,3 +1,4 @@
+import { BlogSectionComponent } from './home/components/blog-section/blog-section.component';
 import { ContactInfoComponent } from './home/components/contact-form/components/contact-info/contact-info.component';
 import { FormComponent } from './home/components/contact-form/components/form/form.component';
 import { ContactFormComponent } from './home/components/contact-form/contact-form.component';
@@ -11,6 +12,7 @@ export default [
   ContactFormComponent,
   FormComponent,
   ContactInfoComponent,
+  BlogSectionComponent,
 ];
 
 export { HomeComponent };

@@ -6,6 +6,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { BlogHeaderComponent } from './containers/all-articles/components/blog-header/blog-header.component';
 
 @NgModule({
   declarations: [...blogContainers],

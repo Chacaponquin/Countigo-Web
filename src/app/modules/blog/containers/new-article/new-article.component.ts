@@ -52,6 +52,8 @@ export class NewArticleComponent implements OnInit {
     htmlExecuteScripts: false,
     theme: 'light',
     pluginsEnabled: null,
+    quickInsertButtons: [],
+    quickInsertEnabled: false,
 
     toolbarButtons: toolbarOptions,
     toolbarButtonsSM: toolbarOptions,

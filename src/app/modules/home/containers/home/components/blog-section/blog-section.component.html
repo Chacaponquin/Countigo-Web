@@ -1,0 +1,30 @@
+<div class="w-full flex flex-col xl:px-40 sm:px-10 md:px-20 lg:px-24 esm:px-10 mt-10">
+    <h1 class="text-6xl text-primary_color font-myriadBold">Our Blog</h1>
+
+    <div class="grid gap-6 py-6 esm:grid-rows-3 esm:grid-cols-1 sm:grid-cols-1 sm:grid-rows-3 md:grid-cols-3 md:grid-rows-1">
+        <div *ngFor="let article of blogArticles" class="flex p-6 items-center rounded-lg duration-300 transition-all esm:flex-row sm:flex-row md:flex-col" [ngClass]="{
+        'bg-primary_color': selectPost == article.id,
+        'text-white': selectPost == article.id,
+        'scale-105': selectPost == article.id
+      }">
+            <img src="./assets/img/test.jpg" alt="" class="object-cover rounded-lg esm:w-[100px] esm:h-full sm:w-[100px] sm:h-full md:w-full" />
+
+            <div class="space-y-4 text-center esm:text-base esm:px-5 esm:w-full esm:py-0 sm:px-5 sm:w-full sm:py-0 md:py-4">
+                <h1 class="font-bold text-2xl esm:text-xl">Post 1</h1>
+
+                <p class="esm:hidden sm:hidden md:block">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto iure repudiandae cum. Ratione, culpa ipsum.
+                </p>
+
+                <p class="esm:hidden sm:hidden md:block">Lorem, ipsum dolor.</p>
+
+                <button class="bg-primary_color rounded-lg text-white md:py-3 px-8 font-bold esm:py-2 esm:text-sm sm:py-2 sm:text-sm" [ngClass]="{
+            '!bg-white': selectPost == article.id,
+            'text-black': selectPost == article.id
+          }">
+          Read More
+        </button>
+            </div>
+        </div>
+    </div>
+</div>
