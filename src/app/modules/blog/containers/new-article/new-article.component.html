@@ -1,4 +1,4 @@
-<div class="px-48">
+<div class="esm:px-5 sm:px-7 md:px-20 lg:px-48">
     <div class="mx-auto shadow-xl p-10 flex flex-col w-full rounded-xl my-10">
         <div class="flex items-center w-full rounded-xl">
             <fa-icon [icon]="faArrow" class="absolute text-xl cursor-pointer"></fa-icon>
@@ -23,13 +23,15 @@
 
                 <h1 class="text-gray-400 text-lg font-bold mb-2">Media</h1>
 
-                <div class="flex items-center space-x-5">
-                    <div class="flex items-center justify-center border-dashed border-blue-300 border-4 w-[150px] h-[150px] rounded-lg cursor-pointer transition-all duration-300 text-blue-300 hover:text-primary_color hover:border-primary_color" (click)="fileInput.click()">
+                <div class="flex items-center space-x-7 esm:flex-wrap space-y-4" [ngClass]="{ 'esm:justify-around': imageShow.length !== 0 }">
+                    <div class="flex items-center justify-center border-dashed border-blue-300 border-4 rounded-lg cursor-pointer transition-all duration-300 text-blue-300 hover:text-primary_color hover:border-primary_color esm:w-[100px] esm:h-[100px] sm:w-[100px] sm:h-[100px] lg:w-[150px] lg:h-[150px]"
+                        (click)="fileInput.click()">
                         <fa-icon class="text-2xl" [icon]="faCamera"></fa-icon>
                     </div>
 
-                    <div *ngFor="let image of imageShow">
-                        <img src="{{ image }}" alt="image" class="object-cover w-[150px] h-[150px] rounded-lg" />
+                    <div *ngFor="let image of imageShow; let i = index">
+                        <fa-icon [icon]="faClose" class="absolute rounded-full text-white bg-black w-[35px] h-[35px] flex items-center justify-center cursor-pointer -translate-x-4 -translate-y-4 text-sm" (click)="deleteImage(i)"></fa-icon>
+                        <img src="{{ image }}" alt="image" class="object-cover rounded-lg esm:w-[100px] esm:h-[100px] sm:w-[100px] sm:h-[150px] lg:w-[150px] lg:h-[150px]" />
                     </div>
                 </div>
             </div>
@@ -40,7 +42,11 @@
             </div>
 
             <div class="flex w-full mt-7 justify-end">
-                <button type="submit" class="bg-primary_color w-max rounded-lg text-white text-xl font-bold py-3 px-7">
+                <app-loader *ngIf="loading"></app-loader>
+                <button *ngIf="!loading" type="submit" class="bg-primary_color w-max rounded-lg text-white text-xl font-bold py-3 px-7" [disabled]="!articleForm.valid" [ngClass]="{
+            'text-black': !articleForm.valid,
+            'bg-slate-200': !articleForm.valid
+          }">
           Create
         </button>
             </div>

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, tap } from 'rxjs';
+import { catchError, Observable, retry, tap } from 'rxjs';
 import { CreateArticleInterface } from 'src/app/data/interfaces/createArticle.interfcae';
 import { environment } from 'src/environments/environment';
 
@@ -21,7 +21,8 @@ export class BlogService {
     articleForm.append('resume', article.resume);
 
     return this.http.post(environment.routes.CREATE_ARTICLE, articleForm).pipe(
-      tap(() => console.log('Hola')),
+      retry(2),
+      tap(() => {}),
       catchError(() => {
         throw new Error('Hubo un error');
       })
