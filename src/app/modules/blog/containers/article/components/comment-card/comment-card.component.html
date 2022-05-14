@@ -1,28 +1,28 @@
 <div class="mt-5 space-y-6">
-    <div class="w-full rounded-lg py-5 px-7 bg-slate-100 flex flex-col">
-        <img src="./assets/img/test.jpg" alt="" class="absolute rounded-full w-[60px] h-[60px] object-cover -translate-y-12 -translate-x-16" />
+    <div class="w-full rounded-lg py-5 px-7 bg-slate-100 flex flex-col esm:py-3 esm:px-4">
+        <img src="./assets/img/test.jpg" alt="" class="absolute rounded-full w-[60px] h-[60px] object-cover -translate-y-12 -translate-x-16 esm:-translate-x-12" />
 
         <div>
-            <h1 class="text-black font-bold">Hector Angel Gomez</h1>
+            <h1 class="text-black font-bold exsm:text-xs">Hector Angel Gomez</h1>
         </div>
 
-        <p class="text-black">
+        <p class="text-black exsm:text-xs">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia, molestiae minus? Consequatur minima fugit neque vel cum repudiandae quidem quam.
         </p>
 
-        <div class="w-full flex justify-end">
-            <button class="rounded-md bg-second_color mr-4 text-white font-bold py-2 px-5 text-base">
+        <div class="w-full flex justify-end text-base exsm:text-xs pt-3 esm:justify-center">
+            <button class="rounded-md bg-second_color mr-4 text-white font-bold py-2 px-5">
         See Replies
       </button>
-            <button class="rounded-md bg-primary_color text-white font-bold py-2 px-5 text-base">
+            <button class="rounded-md bg-primary_color text-white font-bold py-2 px-5">
         Reply
       </button>
         </div>
 
-        <div class="h-96 mt-4 ml-10 space-y-5">
+        <div class="mt-4 ml-10 space-y-5 exsm:ml-0">
             <div class="bg-white p-4 rounded-md" *ngFor="let reply of replies">
-                <p class="!text-black">Hector Angel Gomez</p>
-                <p class="text-sm">
+                <p class="!text-black exsm:text-xs">Hector Angel Gomez</p>
+                <p class="text-sm exsm:text-xs">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi iure consectetur eaque voluptatum reprehenderit blanditiis sint!
                 </p>
             </div>

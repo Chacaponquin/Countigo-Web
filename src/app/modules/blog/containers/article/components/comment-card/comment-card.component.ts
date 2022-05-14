@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class CommentCardComponent implements OnInit {
   constructor() {}
 
-  replies = [1, 2, 3];
+  replies = [1, 2];
 
   ngOnInit(): void {}
 }
