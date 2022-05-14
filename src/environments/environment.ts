@@ -8,6 +8,7 @@ export const environment = {
     LOGIN_ADMIN: 'http://localhost:5000/admin/login',
     CLIENT_MESSAGE: 'http://localhost:5000/newClientMessage',
     CREATE_ARTICLE: 'http://localhost:5000/admin/blog/createArticle',
+    BLOG_SUBSCRIBE: 'http://localhost:5000/admin/blog/subscribe',
   },
 };
 

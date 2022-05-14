@@ -5,5 +5,6 @@ export const environment = {
     CLIENT_MESSAGE: 'https://countigo-api.herokuapp.com/newClientMessage',
     CREATE_ARTICLE:
       'https://countigo-api.herokuapp.com/admin/blog/createArticle',
+    BLOG_SUBSCRIBE: 'https://countigo-api.herokuapp.com/admin/blog/subscribe',
   },
 };

@@ -4,6 +4,9 @@ import { catchError, Observable, retry, tap } from 'rxjs';
 import { CreateArticleInterface } from 'src/app/data/interfaces/createArticle.interfcae';
 import { environment } from 'src/environments/environment';
 
+interface EmailForm {
+  email: string;
+}
 @Injectable({
   providedIn: 'root',
 })
@@ -21,6 +24,16 @@ export class BlogService {
     articleForm.append('resume', article.resume);
 
     return this.http.post(environment.routes.CREATE_ARTICLE, articleForm).pipe(
+      retry(2),
+      tap(() => {}),
+      catchError(() => {
+        throw new Error('Hubo un error');
+      })
+    );
+  }
+
+  blogSubscribe(email: EmailForm): Observable<any> {
+    return this.http.post(environment.routes.BLOG_SUBSCRIBE, email).pipe(
       retry(2),
       tap(() => {}),
       catchError(() => {

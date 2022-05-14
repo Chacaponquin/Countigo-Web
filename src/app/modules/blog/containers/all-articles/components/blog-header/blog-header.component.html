@@ -1,17 +1,22 @@
 <div class="w-full text-center mb-5 space-y-6 flex flex-col items-center">
     <div class="space-y-3">
-        <h1 class="font-myriadBold text-7xl text-primary_color">
+        <h1 class="font-myriadBold text-7xl text-primary_color esm:text-5xl">
             Welcome to our Blog!
         </h1>
-        <p class="text-gray-500">
+        <p class="text-gray-500 esm:text-sm">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit unde porro atque vel, architecto assumenda molestiae labore fugiat quam nulla.
         </p>
     </div>
 
-    <div class="w-[500px] flex">
-        <input type="text" class="w-full border-2 p-4 rounded-tl-lg rounded-bl-lg" placeholder="Your email..." />
-        <button class="p-4 bg-second_color text-white font-bold rounded-tr-lg rounded-br-lg">
+    <form [formGroup]="emailForm" class="w-[500px] flex esm:w-[300px]" [ngClass]="{
+      'items-center': loading
+    }">
+        <input type="text" class="w-full border-2 p-4 rounded-tl-lg rounded-bl-lg esm:py-3 esm:px-3" placeholder="Your email..." formControlName="email" [ngClass]="{ 'border-red-300': !emailForm.valid }" name="email" [ngClass]="{
+        'h-max': loading
+      }" />
+        <button *ngIf="!loading" class="py-4 px-6 bg-second_color text-white font-bold rounded-tr-lg rounded-br-lg esm:py-3" [disabled]="!emailForm.valid" type="submit" (click)="onSubmit()">
       Subscribe
     </button>
-    </div>
+        <app-loader *ngIf="loading" [className]="'px-3'"></app-loader>
+    </form>
 </div>

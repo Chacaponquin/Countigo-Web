@@ -14,6 +14,7 @@ module.exports = {
                 myriadBold: ["Myriad-Bold"],
             },
             screens: {
+                exsm: { max: "400px" },
                 esm: { max: "640px" },
             },
         },

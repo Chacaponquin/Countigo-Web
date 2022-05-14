@@ -1,20 +1,18 @@
-<div class="w-full px-32 py-10">
+<div class="flex flex-col w-full py-10 esm:px-5 sm:px-7 md:px-12 lg:px-28">
     <blog-header></blog-header>
 
-    <div class="w-full grid shadow-xl grid-cols-2 grid-rows-1 rounded-lg">
-        <div class="w-full h-[400px]">
-            <img src="./assets/img/test.jpg" alt="test" class="object-cover h-full w-full rounded-lg" />
-        </div>
+    <div class="w-full flex shadow-xl h-max grid-cols-2 grid-rows-1 rounded-lg esm:flex-col">
+        <img src="./assets/img/test.jpg" alt="test" class="object-cover rounded-lg w-[50%] h-[300px] esm:w-full esm:h-[180px]" />
 
-        <div class="flex flex-col p-14 space-y-5 justify-center">
-            <h1 class="font-myriadBold text-xl">
+        <div class="flex flex-col lg:p-14 space-y-5 justify-center esm:p-7 sm:p-4 md:p-10">
+            <h1 class="font-bold text-xl esm:text-lg">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, nobis nemo. Unde!
             </h1>
 
             <div class="flex items-center">
                 <img src="./assets/img/test.jpg" alt="" class="rounded-full w-[50px] h-[50px] border-primary_color border-2 object-cover" />
 
-                <div class="flex flex-col pl-5 text-sm">
+                <div class="flex flex-col pl-5 text-sm esm:text-xs">
                     <h1 class="font-bold">Lorem, ipsum dolor.</h1>
                     <p class="text-gray-500">Lorem ipsum dolor sit.</p>
                 </div>
@@ -26,24 +24,7 @@
         </div>
     </div>
 
-    <div class="w-full grid grid-cols-3 gap-8 mt-10">
-        <div class="rounded-lg shadow-xl" *ngFor="let article of blogArticles">
-            <img src="./assets/img/test.jpg" alt="" class="w-full object-cover rounded-lg h-[200px]" />
-
-            <div class="p-5 space-y-5 text-sm flex flex-col justify-between">
-                <h1 class="font-bold">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis, a?
-                </h1>
-
-                <div class="flex items-center">
-                    <img src="./assets/img/test.jpg" alt="" class="rounded-full w-[50px] h-[50px] border-primary_color border-2 object-cover" />
-
-                    <div class="flex flex-col pl-5">
-                        <h1 class="font-bold">Lorem, ipsum dolor.</h1>
-                        <p class="text-gray-500">Lorem ipsum dolor sit.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="w-full grid grid-cols-3 gap-8 mt-10 esm:grid-cols-2 exsm:!grid-cols-1">
+        <blog-article-card *ngFor="let article of blogArticles"></blog-article-card>
     </div>
 </div>
