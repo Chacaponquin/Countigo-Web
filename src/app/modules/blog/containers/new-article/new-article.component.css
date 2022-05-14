@@ -1,0 +1,9 @@
+.active {
+    background-color: #135194 !important;
+    color: white;
+}
+
+.angular-editor-button {
+    border-radius: 0.4rem;
+    margin-right: 0.2rem;
+}

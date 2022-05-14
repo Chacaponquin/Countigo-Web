@@ -4,8 +4,8 @@ import { BlogRoutingModule } from './blog-routing.module';
 import blogContainers from './containers';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 @NgModule({
   declarations: [...blogContainers],
@@ -14,10 +14,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     BlogRoutingModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-
-    FroalaEditorModule.forRoot(),
-    FroalaViewModule.forRoot(),
     SharedModule,
+    AngularEditorModule,
   ],
 })
 export class BlogModule {}

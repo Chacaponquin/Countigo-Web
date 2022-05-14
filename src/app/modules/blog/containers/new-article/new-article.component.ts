@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
 import { faArrowLeft, faCamera, faX } from '@fortawesome/free-solid-svg-icons';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { ToastrService } from 'ngx-toastr';
-import { toolbarOptions } from 'src/app/data/const/froala/toolbarOptions';
-import { toolbarOptionsXS } from 'src/app/data/const/froala/toolbarOptionsXS';
 import { BlogService } from 'src/app/shared/services/blog/blog.service';
 
 @Component({
   selector: 'blog-new-article',
   templateUrl: './new-article.component.html',
   styleUrls: ['./new-article.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class NewArticleComponent implements OnInit {
   constructor(
@@ -29,10 +29,6 @@ export class NewArticleComponent implements OnInit {
   //LOADING
   loading: boolean = false;
 
-  //OPCIONES DEL EDITOR DE TEXTO
-  toolbarOptions = toolbarOptions;
-  toolbarOptionsXS = toolbarOptionsXS;
-
   articleForm = this.fb.group({
     title: ['', [Validators.required]],
     htmlInput: ['', [Validators.required]],
@@ -43,21 +39,21 @@ export class NewArticleComponent implements OnInit {
     resume: ['', [Validators.required]],
   });
 
-  public options: Object = {
-    key: 'ERB2zA2C2A4B5B3D3qYFd1UQRFQIVb1MSMc2IWPNe1IFg1yD4C3D2E2C4B1F1H4C2C1==',
-    charCounterCount: true,
-    events: {},
-    placeholderText: 'Start typing...',
+  editorConfig: AngularEditorConfig = {
+    editable: true,
+    placeholder: 'Article...',
     height: '200px',
-    htmlExecuteScripts: false,
-    theme: 'light',
-    pluginsEnabled: null,
-    quickInsertButtons: [],
-    quickInsertEnabled: false,
-
-    toolbarButtons: toolbarOptions,
-    toolbarButtonsSM: toolbarOptions,
-    toolbarButtonsXS: toolbarOptionsXS,
+    toolbarHiddenButtons: [
+      [
+        'insertImage',
+        'insertVideo',
+        'removeFormat',
+        'toggleEditorMode',
+        'fontSize',
+        'backgroundColor',
+        'fontName',
+      ],
+    ],
   };
 
   ngOnInit(): void {}

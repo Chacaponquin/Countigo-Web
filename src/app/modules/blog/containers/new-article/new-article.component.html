@@ -24,21 +24,21 @@
                 <h1 class="text-gray-400 text-lg font-bold mb-2">Media</h1>
 
                 <div class="flex items-center space-x-7 esm:flex-wrap space-y-4" [ngClass]="{ 'esm:justify-around': imageShow.length !== 0 }">
-                    <div class="flex items-center justify-center border-dashed border-blue-300 border-4 rounded-lg cursor-pointer transition-all duration-300 text-blue-300 hover:text-primary_color hover:border-primary_color esm:w-[100px] esm:h-[100px] sm:w-[100px] sm:h-[100px] lg:w-[150px] lg:h-[150px]"
+                    <div class="flex items-center justify-center border-dashed border-blue-300 border-4 rounded-lg cursor-pointer transition-all duration-300 text-blue-300 hover:text-primary_color hover:border-primary_color esm:w-[100px] esm:h-[100px] sm:w-[100px] sm:h-[100px] lg:w-[120px] lg:h-[120px]"
                         (click)="fileInput.click()">
                         <fa-icon class="text-2xl" [icon]="faCamera"></fa-icon>
                     </div>
 
                     <div *ngFor="let image of imageShow; let i = index">
                         <fa-icon [icon]="faClose" class="absolute rounded-full text-white bg-black w-[35px] h-[35px] flex items-center justify-center cursor-pointer -translate-x-4 -translate-y-4 text-sm" (click)="deleteImage(i)"></fa-icon>
-                        <img src="{{ image }}" alt="image" class="object-cover rounded-lg esm:w-[100px] esm:h-[100px] sm:w-[100px] sm:h-[150px] lg:w-[150px] lg:h-[150px]" />
+                        <img src="{{ image }}" alt="image" class="object-cover rounded-lg esm:w-[100px] esm:h-[100px] sm:w-[100px] sm:h-[150px] lg:w-[120px] lg:h-[120px]" />
                     </div>
                 </div>
             </div>
 
             <div>
                 <h1 class="text-gray-400 text-lg font-bold mb-2">Article</h1>
-                <div [froalaEditor]="options" class="" formControlName="htmlInput"></div>
+                <angular-editor [config]="editorConfig" formControlName="htmlInput"></angular-editor>
             </div>
 
             <div class="flex w-full mt-7 justify-end">
